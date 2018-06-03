@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="UIChatClient.MessageEntity"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIChatClient"
+             mc:Ignorable="d" 
+             d:DesignHeight="32.937" d:DesignWidth="251.905">
+    <Grid>
+        <TextBlock x:Name="authorTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top" Height="33" Width="68" TextDecorations="{x:Null}" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="68,0,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Height="33" FontSize="20" TextAlignment="Center"/>
+        <TextBlock x:Name="messageTextBlock" HorizontalAlignment="Left" Margin="72,0,0,0" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" Height="33" Width="180"/>
+
+    </Grid>
+</UserControl>
