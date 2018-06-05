@@ -28,6 +28,8 @@ namespace UIChatClient
             this.window = window;
             serverConnect = connect;
             window.Closing += WindowClosing;
+            ipAddressTextBlock.Text = serverConnect.ServerIp;
+            portTextBlock.Text = serverConnect.ServerPort.ToString();
         }
 
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
