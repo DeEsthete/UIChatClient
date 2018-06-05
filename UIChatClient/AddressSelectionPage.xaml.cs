@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,21 +22,22 @@ namespace UIChatClient
     /// </summary>
     public partial class AddressSelectionPage : Page
     {
-        private ServerConnect serverConnect;
+        private ServerConnectChat serverConnectChat;
         private Window window;
+
         public AddressSelectionPage(Window window)
         {
             InitializeComponent();
             this.window = window;
-            serverConnect = new ServerConnect();
+            serverConnectChat = new ServerConnectChat();
         }
 
         private void EnterButtonClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                serverConnect.ServerIp = ipTextBox.Text;
-                serverConnect.UserName = userNameTextBox.Text;
+                serverConnectChat.ServerIp = ipTextBox.Text;
+                serverConnectChat.UserName = userNameTextBox.Text;
 
                 int port = -1;
                 bool portIsCorrect = int.TryParse(portTextBox.Text, out port);
@@ -44,9 +47,17 @@ namespace UIChatClient
                 }
                 else
                 {
-                    serverConnect.ServerPort = port;
-                    serverConnect.CreateConnect();
-                    window.Content = new MainPage(window, serverConnect);
+                    serverConnectChat.ServerPort = port;
+                    serverConnectChat.CreateConnect();
+
+                    ServerConnectFilesharing serverConnectFilesharing = new ServerConnectFilesharing();
+                    serverConnectFilesharing.ServerIp = ipTextBox.Text;
+                    serverConnectFilesharing.ServerPort = port;
+                    serverConnectFilesharing.ConnectDownload();
+                    serverConnectFilesharing.ConnectUpload();
+                    serverConnectFilesharing.DownloadFileStart();
+                    
+                    window.Content = new MainPage(window, serverConnectChat, serverConnectFilesharing);
                 }
             }
             catch

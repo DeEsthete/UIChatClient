@@ -6,19 +6,19 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Threading;
 using Newtonsoft.Json;
 
 namespace UIChatClient
 {
-    public class ServerConnect
+    public class ServerConnectChat
     {
-        public int ServerPort { get; set; } // = 3535 
+        public int ServerPort { get; set; } // = 3535
         public string ServerIp { get; set; } //127.0.0.1
         public bool ServerIsConnect { get; set; }
         public string UserName { get; set; }
-
-        //Chat variables
+        
         private Socket remoteServerSocket;
         private IPEndPoint endPoint;
 
@@ -29,10 +29,9 @@ namespace UIChatClient
 
             try
             {
-                Console.WriteLine("Соединяемся с сервером...");
                 remoteServerSocket.Connect(endPoint);
-                Console.WriteLine("Соединено..");
                 ServerIsConnect = true;
+                SendMessage("init");
             }
             catch (SocketException ex)
             {
@@ -40,25 +39,33 @@ namespace UIChatClient
             }
         }
 
-        public void SendMessage(string message)
+        public async void SendMessage(string message)
         {
-            try
-            {
-                string serialized = JsonConvert.SerializeObject(new UserMessage { UserName = UserName, Message = message });
-                remoteServerSocket.Send(Encoding.Default.GetBytes(serialized));
-            }
-            catch (SocketException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            await SendMessageWork(message);
         }
 
-        public async void StartAcceptMessage()
+        private Task SendMessageWork(string message)
         {
-            await AcceptMessage();
+            return Task.Run(() =>
+            {
+                try
+                {
+                    string serialized = JsonConvert.SerializeObject(new UserMessage { UserName = UserName, Message = message });
+                    remoteServerSocket.Send(Encoding.Default.GetBytes(serialized));
+                }
+                catch (SocketException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            });
         }
 
-        public Task AcceptMessage()
+        public async void StartAcceptMessage(ListBox chatListBox)
+        {
+            await AcceptMessage(chatListBox);
+        }
+
+        private Task AcceptMessage(ListBox chatListBox)
         {
             return Task.Run(() =>
             {
@@ -74,9 +81,10 @@ namespace UIChatClient
                         stringBuilder.Append(Encoding.Default.GetString(buffer, 0, bytes));
                     }
                     while (remoteServerSocket.Available > 0);
-
-                    //Проблема на сервере он отправаляет не json файл а готовую строку (исправить)
+                    
                     UserMessage newMessage = JsonConvert.DeserializeObject<UserMessage>(stringBuilder.ToString());
+                    MessageEntity temp = new MessageEntity(newMessage);
+                    chatListBox.Items.Add(temp);
                     //Отправить в ListBox
                 }
             });
@@ -84,10 +92,9 @@ namespace UIChatClient
 
         public void CloseConnect()
         {
-            SendMessage("exit");
+            SendMessageWork("exit");
             ServerIsConnect = false;
             remoteServerSocket.Close();
-            Console.WriteLine("Сеанс завершен...");
         }
     }
 }

@@ -21,20 +21,26 @@ namespace UIChatClient
     public partial class MainPage : Page
     {
         private Window window;
-        private ServerConnect serverConnect;
-        public MainPage(Window window, ServerConnect connect)
+        private ServerConnectChat serverConnectChat;
+        private ServerConnectFilesharing serverConnectFilesharing;
+        public MainPage(Window window, ServerConnectChat connectChat, ServerConnectFilesharing connectFilesharing)
         {
             InitializeComponent();
+
             this.window = window;
-            serverConnect = connect;
+            serverConnectChat = connectChat;
+            serverConnectFilesharing = connectFilesharing;
+            serverConnectChat.StartAcceptMessage(historyChatListBox);
+
             window.Closing += WindowClosing;
-            ipAddressTextBlock.Text = serverConnect.ServerIp;
-            portTextBlock.Text = serverConnect.ServerPort.ToString();
+
+            ipAddressTextBlock.Text = serverConnectChat.ServerIp;
+            portTextBlock.Text = serverConnectChat.ServerPort.ToString();
         }
 
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            serverConnect.CloseConnect();
+            serverConnectChat.CloseConnect();
         }
 
         private void SendMessageButtonClick(object sender, RoutedEventArgs e)
@@ -45,7 +51,7 @@ namespace UIChatClient
             }
             else
             {
-                serverConnect.SendMessage(messageTextBox.Text);
+                serverConnectChat.SendMessage(messageTextBox.Text);
             }
         }
     }

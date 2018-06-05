@@ -57,13 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FileTransport.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MessageEntity.xaml.cs">
       <DependentUpon>MessageEntity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ServerConnect.cs" />
+    <Compile Include="ServerConnectFilesharing.cs" />
+    <Compile Include="ServerConnectChat.cs" />
     <Compile Include="UserMessage.cs" />
     <Page Include="AddressSelectionPage.xaml">
       <SubType>Designer</SubType>
