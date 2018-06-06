@@ -64,7 +64,6 @@
     <Compile Include="MessageEntity.xaml.cs">
       <DependentUpon>MessageEntity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ServerConnectFilesharing.cs" />
     <Compile Include="ServerConnectChat.cs" />
     <Compile Include="UserMessage.cs" />
     <Page Include="AddressSelectionPage.xaml">

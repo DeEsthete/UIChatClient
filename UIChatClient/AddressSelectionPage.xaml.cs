@@ -49,15 +49,8 @@ namespace UIChatClient
                 {
                     serverConnectChat.ServerPort = port;
                     serverConnectChat.CreateConnect();
-
-                    ServerConnectFilesharing serverConnectFilesharing = new ServerConnectFilesharing();
-                    serverConnectFilesharing.ServerIp = ipTextBox.Text;
-                    serverConnectFilesharing.ServerPort = port;
-                    serverConnectFilesharing.ConnectDownload();
-                    serverConnectFilesharing.ConnectUpload();
-                    serverConnectFilesharing.DownloadFileStart();
                     
-                    window.Content = new MainPage(window, serverConnectChat, serverConnectFilesharing);
+                    window.Content = new MainPage(window, serverConnectChat);
                 }
             }
             catch

@@ -10,5 +10,6 @@ namespace UIChatClient
     {
         public string UserName { get; set; }
         public string Message { get; set; }
+        public FileTransport File { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,20 +23,20 @@ namespace UIChatClient
     {
         private Window window;
         private ServerConnectChat serverConnectChat;
-        private ServerConnectFilesharing serverConnectFilesharing;
-        public MainPage(Window window, ServerConnectChat connectChat, ServerConnectFilesharing connectFilesharing)
+        public MainPage(Window window, ServerConnectChat connectChat)
         {
             InitializeComponent();
 
             this.window = window;
             serverConnectChat = connectChat;
-            serverConnectFilesharing = connectFilesharing;
             serverConnectChat.StartAcceptMessage(historyChatListBox);
 
             window.Closing += WindowClosing;
 
             ipAddressTextBlock.Text = serverConnectChat.ServerIp;
             portTextBlock.Text = serverConnectChat.ServerPort.ToString();
+
+            StartAcceptMessage();
         }
 
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -52,6 +53,41 @@ namespace UIChatClient
             else
             {
                 serverConnectChat.SendMessage(messageTextBox.Text);
+                messageTextBox.Text = "";
+            }
+        }
+
+        private async void StartAcceptMessage()
+        {
+            await AcceptMessage();
+        }
+
+        private Task AcceptMessage()
+        {
+            return Task.Run(() =>
+            {
+                while (true)
+                {
+                    if (historyChatListBox.Items.Count < serverConnectChat.Messages.Count)
+                    {
+                        
+                        Dispatcher.Invoke(() => {
+                            MessageEntity temp = new MessageEntity(serverConnectChat.Messages[historyChatListBox.Items.Count]);
+                            historyChatListBox.Items.Add(temp);
+                        });
+                     
+                    }
+                }
+            });
+        }
+
+        private void SendFileClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog d = new OpenFileDialog();
+
+            if (d.ShowDialog() == true)
+            {
+                serverConnectChat.UploadFile(d.FileName);
             }
         }
     }

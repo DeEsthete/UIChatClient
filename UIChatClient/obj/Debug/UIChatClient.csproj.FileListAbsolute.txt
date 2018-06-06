@@ -21,3 +21,27 @@ C:\Users\djoni\source\repos\UIChatClient\UIChatClient\obj\Debug\UIChatClient.exe
 C:\Users\djoni\source\repos\UIChatClient\UIChatClient\obj\Debug\UIChatClient.pdb
 C:\Users\djoni\source\repos\UIChatClient\UIChatClient\obj\Debug\MessageEntity.g.cs
 C:\Users\djoni\source\repos\UIChatClient\UIChatClient\obj\Debug\MessageEntity.baml
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\bin\Debug\UIChatClient.exe.config
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\bin\Debug\UIChatClient.exe
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\bin\Debug\UIChatClient.pdb
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.csprojResolveAssemblyReference.cache
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\AddressSelectionPage.g.cs
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\MainPage.g.cs
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\MainWindow.g.cs
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\MessageEntity.g.cs
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\App.g.cs
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient_MarkupCompile.cache
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient_MarkupCompile.lref
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\AddressSelectionPage.baml
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\MainPage.baml
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\MainWindow.baml
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\MessageEntity.baml
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.g.resources
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.Properties.Resources.resources
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.csproj.GenerateResource.cache
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.csproj.CoreCompileInputs.cache
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.csproj.CopyComplete
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.exe
+C:\Users\ПавловЕ\Desktop\projects 2\UIChatClient\UIChatClient\obj\Debug\UIChatClient.pdb

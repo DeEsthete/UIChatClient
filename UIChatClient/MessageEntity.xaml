@@ -8,7 +8,7 @@
              d:DesignHeight="32.937" d:DesignWidth="251.905">
     <Grid>
         <TextBlock x:Name="authorTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top" Height="33" Width="68" TextDecorations="{x:Null}" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="68,0,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Height="33" FontSize="20" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="68,0,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Height="33" FontSize="20" TextAlignment="Center" />
         <TextBlock x:Name="messageTextBlock" HorizontalAlignment="Left" Margin="72,0,0,0" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" Height="33" Width="180"/>
 
     </Grid>

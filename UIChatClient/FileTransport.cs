@@ -9,7 +9,6 @@ namespace UIChatClient
     public class FileTransport
     {
         public string FileName { get; set; }
-        public string Expansion { get; set; }
         public byte[] Data { get; set; }
     }
 }
